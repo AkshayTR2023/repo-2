@@ -1,0 +1,22 @@
+
+.navbar-nav {
+    margin: auto;
+  }
+  
+  
+  .nav-link.active {
+    font-weight: bold;
+    color: tomato;
+  }
+  
+ 
+  .navbar-nav .nav-item {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  
+  .container-fluid {
+    padding-top: 20px;
+  }
+  

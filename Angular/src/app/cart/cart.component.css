@@ -1,0 +1,57 @@
+.cart-container {
+  padding: 20px;
+}
+
+.cart-card {
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.item-name {
+  color: #343a40;
+  font-size: 1.2rem;
+}
+
+.item-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.quantity-input {
+  max-width: 50px;
+  border-radius: 30%;
+}
+
+.item-price {
+  font-size: 0.9rem;
+}
+
+.item-total {
+  color: #343a40;
+  font-size: 1rem;
+}
+
+.remove-button {
+  background-color: #dc3545;
+}
+
+.summary-card {
+  background-color: #f8f9fa;
+  border: none;
+  margin-top: 20px;
+}
+
+.total-items,
+.total-cost {
+  color: #343a40;
+  font-size: 1.1rem;
+}
+
+.checkout-button {
+  background-color: #007bff;
+}
+
+.empty-cart-message {
+  text-align: center;
+  margin-top: 20px;
+}
