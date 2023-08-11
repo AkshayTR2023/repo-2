@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Entity
@@ -19,12 +17,20 @@ public class FoodItem {
     private Long foodItemId;
     private String name;
     private String description;
-    private double price;
+    private double actualPrice;
+    private int offer;
     private String imagePath;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
+    
     private int availableQuantity;
     private boolean enabled;
+    
+    public double getDiscountedPrice() {
+    	return this.actualPrice*(1-this.offer/100);
+    }
+    
+    
+    
 }

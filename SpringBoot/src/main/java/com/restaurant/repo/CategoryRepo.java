@@ -6,4 +6,6 @@ import com.restaurant.pojo.Category;
 
 public interface CategoryRepo extends JpaRepository<Category, Long > {
 
+	public Category findByName(String categoryName);
+
 }

@@ -1,0 +1,120 @@
+.badge-success {
+    color: #28a745;
+  }
+
+  .badge-danger {
+    color: #dc3545;
+  }
+  .food-list-container {
+    height: 100vh;
+    margin: 0 auto;
+  }
+  
+  .food-list-title {
+    text-align: center;
+    color: #ff5722; /* Bright orange color */
+  }
+  
+  .food-list-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .btn-sm {
+    font-size: 14px;
+  }
+  
+  .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  .food-list-table th {
+    font-weight: bold;
+    color: #333; /* Dark gray color */
+  }
+  
+  .food-name {
+    color: #007bff; /* Blue color */
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .food-description {
+    color: #555; /* Light gray color */
+    font-size: 14px;
+  }
+  
+  .food-status {
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 4px 8px;
+  }
+  
+  .food-image {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+  }
+  
+  /* Adjust button colors */
+  .btn-success {
+    background-color: #28a745; /* Green color */
+    border-color: #28a745;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8; /* Cyan color */
+    border-color: #17a2b8;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Red color */
+    border-color: #dc3545;
+  }
+  .add-food-container {
+    height: 100vh;
+    margin: 0 auto;
+  }
+  
+  .add-food-title {
+    text-align: center;
+    color: #ff5722; /* Bright orange color */
+  }
+  
+  .add-food-back-button {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: #333; /* Dark gray color */
+  }
+  
+  .form-control {
+    border: 1px solid #ccc; /* Light gray border */
+  }
+  
+  .form-check-label {
+    color: #555; /* Light gray color */
+    margin-left: 5px;
+  }
+  
+  .add-food-button {
+    background-color: #343a40; /* Dark gray color */
+    border-color: #343a40;
+  }
+  
+  .add-food-button:hover {
+    background-color: #292b2c; /* Darker gray color on hover */
+  }
+  

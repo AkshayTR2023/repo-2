@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
-import { CartItem } from '../cart-item.model';
+import { FoodBoxService } from '../food-box.service';
+import { CartItem } from '../model-classes/cart-item.model';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[] = [];
   totalCartCost: number = 0;
   alertMessage='';
-  constructor(private service: CartService) { }
+  constructor(private service: FoodBoxService) { }
 
   ngOnInit(): void {
     this.getCartItems();

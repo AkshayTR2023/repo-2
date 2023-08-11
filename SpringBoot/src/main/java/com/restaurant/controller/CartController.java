@@ -26,7 +26,7 @@ import com.restaurant.service.CartService;
 @RequestMapping("/cart")
 public class CartController {
 	@Autowired
-	CartService service;
+	CartService cartService;
 
 	@PostMapping("/add")
 	public ResponseEntity<String> addItemToCart(@RequestParam("userId") Long userId,
@@ -34,7 +34,7 @@ public class CartController {
 		CartItem cartItem = new CartItem();
 		cartItem.setQuantity(quantity);
 		try {
-			service.addItemToCart(userId, foodItemId, cartItem);
+			cartService.addItemToCart(userId, foodItemId, cartItem);
 			return ResponseEntity.ok("Item added to cart successfully");
 		} catch (ItemNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Food item Not Found!");
@@ -50,19 +50,19 @@ public class CartController {
 
 	@PutMapping("/update/{cartId}/{newQuantity}")
 	public String updateCartItem(@PathVariable Long cartId,@PathVariable int newQuantity) {
-		if(service.updateCartItem(cartId,newQuantity)!=null)
+		if(cartService.updateCartItem(cartId,newQuantity)!=null)
 		return "done";
-		return ":(";
+		return "0";
 	}
 
 	@GetMapping("/{userId}")
 	public List<CartItem> getWholeCart(@PathVariable Long userId) {
-		return service.getWholeCartByUserId(userId);
+		return cartService.getWholeCartByUserId(userId);
 	}
 
 	@DeleteMapping("/delete/{cartId}")
 	public String deleteFromCart(@PathVariable Long cartId) {
-		service.deleteFromCart(cartId);
+		cartService.deleteFromCart(cartId);
 		return "done";
 		
 	}

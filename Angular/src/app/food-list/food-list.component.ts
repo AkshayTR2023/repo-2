@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
-import { Category, FoodItem } from '../food-item.model';
+import { FoodBoxService } from '../food-box.service';
+import { FoodItem } from '../model-classes/food-item.model';
+import { Category } from '../model-classes/category.model';
 
 @Component({
   selector: 'app-food-list',
@@ -8,7 +9,7 @@ import { Category, FoodItem } from '../food-item.model';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  constructor(private service: CartService) { }
+  constructor(private service: FoodBoxService) { }
   foodItems: FoodItem[] = [];
   quantities: number[] = [];
   filteredFoodItems: FoodItem[] = [];
@@ -35,6 +36,7 @@ export class FoodListComponent implements OnInit {
       this.initializeQuantities();
     });
   }
+  
   initializeQuantities(): void {
     this.quantities = new Array(this.foodItems.length).fill(1);
   }
@@ -44,8 +46,16 @@ export class FoodListComponent implements OnInit {
     }
     else if (quantity <= foodItem.availableQuantity) {
       this.service.addToCart(foodItem.foodItemId, quantity).subscribe(
-        response => {
-          this.showSuccessModal();}
+        () => {
+          this.showSuccessModal();
+          // foodItem.availableQuantity=foodItem.availableQuantity-quantity;
+          // this.service.editFoodItem(foodItem).subscribe(
+          //   ()=>{
+          //   this.getFoodItems();
+          //   }
+          // )
+       
+        }
       );
 
 
@@ -102,9 +112,9 @@ export class FoodListComponent implements OnInit {
       item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
     if (this.selectedSortOption === 'lowToHigh') {
-      this.filteredFoodItems.sort((a, b) => a.price - b.price);
+      this.filteredFoodItems.sort((a, b) => a.actualPrice*(1-a.offer/100) - b.actualPrice*(1-b.offer/100));
     } else if (this.selectedSortOption === 'highToLow') {
-      this.filteredFoodItems.sort((a, b) => b.price - a.price);
+      this.filteredFoodItems.sort((a, b) =>  b.actualPrice*(1-b.offer/100) -a.actualPrice*(1-a.offer/100));
     }
 
     if (this.searchQuery) {
@@ -113,6 +123,6 @@ export class FoodListComponent implements OnInit {
       );
     }
   }
-
+  
 
 }

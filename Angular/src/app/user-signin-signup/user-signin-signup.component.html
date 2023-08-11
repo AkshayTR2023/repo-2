@@ -1,0 +1,71 @@
+<div class="main-box">
+    <div class="form-cont">
+      <div class="top-buttons">
+        <button #toSignupButton class="to-signup" (click)="showSignUpForm()">Sign Up</button>
+        <button #toSigninButton class="to-signin top-active-button" (click)="showSignInForm()">Log In</button>
+  
+      </div>
+  
+      <!-- Login Form -->
+      <div #signinForm class="form form-signin">
+        <form [formGroup]="login">
+          <label>E-MAIL</label>
+          <input type="email" formControlName="email" placeholder="Your e-mail">
+          <div *ngIf="login.get('email').errors && login.get('email').touched" class="alert alert-danger">* Email is
+            required</div>
+          <label>PASSWORD</label>
+          <input type="password" formControlName="password" placeholder="Your password">
+          <div *ngIf="login.get('password').errors && login.get('password').touched" class="alert alert-danger ">* Password
+            is required</div>
+          <input type="button" (click)="userLogin()" class="form-btn" value="Log In" [disabled]="!login.valid"/>
+          <br><br>
+          <a (click)="showSignUpForm()" class="lined-link to-signup-link">Create new account</a>
+        </form>
+      </div>
+  
+      <!-- Sign Up Form -->
+      <div #signupForm class="form form-signup">
+        <form [formGroup]="addUser ">
+          <label>FULL NAME</label>
+          <input type="text" formControlName="name" placeholder="Your full name">
+          <div *ngIf="addUser .controls.name.invalid && addUser .controls.name.touched" class="alert alert-danger">* Please enter a
+            valid name.</div>
+  
+          <label>E-MAIL</label>
+          <input type="email" formControlName="email" placeholder="Your e-mail">
+          <div *ngIf="addUser .controls.email.invalid && addUser .controls.email.touched" class="alert alert-danger">* Email is
+            required.</div>
+          <label>Phone Number:</label>
+          <input type="text" formControlName="mobileNumber" placeholder="Your Mobile Number">
+          <div *ngIf="addUser .controls.mobileNumber.invalid && addUser .controls.mobileNumber.touched" class="alert alert-danger">* Phone Number is required.</div> 
+  
+          <label>PASSWORD</label>
+          <input type="password" formControlName="password" placeholder="Your password">
+          <div *ngIf="addUser .controls.password.invalid && addUser .controls.password.touched" class="alert alert-danger">
+            * Password is required.</div>
+          <input type="button" (click)="registerUser()" class="form-btn" value="Sign Up" />
+          <br><br>
+          <a (click)="showSignInForm()" class="lined-link to-signin-link">I'm already a member</a>
+        </form>
+      </div>
+    </div>
+    <div class="clear-fix"></div>
+  </div>
+  <button (click)="editform()">Edit form</button>
+  
+  {{updatemessage}}
+  <div class="update-box">
+    <div class="form-cont">
+      <div #signinForm class="form">
+      <form [formGroup]="updateForm">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Your Email" readonly>
+        <label>PASSWORD</label>
+        <input type="password" formControlName="password" placeholder="Your password">
+        <input type="button" (click)="updateform()" class="form-btn" value="Update" />
+      </form>
+    </div>
+    
+  </div>
+  </div>
+  

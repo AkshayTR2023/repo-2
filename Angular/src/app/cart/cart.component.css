@@ -52,6 +52,43 @@
 }
 
 .empty-cart-message {
-  text-align: center;
   margin-top: 20px;
+}
+
+.empty-cart-title {
+  color: #f76c6c;
+  margin-bottom: 10px;
+}
+
+.empty-cart-image {
+  height: 200px;
+}
+
+.empty-cart-text {
+  color: #555;
+}
+
+.material-icons{
+  vertical-align: middle;
+}
+
+.modal-content {
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  color: #fff;
+}
+
+.modal-body h6 {
+  color: #333;
+}
+
+.modal-footer {
+  border-top: none;
 }

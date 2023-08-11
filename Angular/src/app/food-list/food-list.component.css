@@ -6,7 +6,7 @@
   
   .nav-link.active {
     font-weight: bold;
-    color: tomato;
+    color: blue;
   }
   
  
@@ -18,5 +18,23 @@
   
   .container-fluid {
     padding-top: 20px;
+  }
+  .category-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 10px; 
+  }
+  
+  .category-scroll-container::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  .category-scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 5px; 
+  }
+  
+  .category-scroll-container::-webkit-scrollbar-track {
+    background-color: transparent; 
   }
   

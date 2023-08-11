@@ -1,0 +1,11 @@
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+  }
+ 
+  .material-icons{
+    vertical-align: middle;
+  }
+  .icon-text {
+    font-size: larger;
+    margin:0 5px;
+  }

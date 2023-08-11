@@ -6,4 +6,9 @@ import com.restaurant.pojo.User;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
+	User findByEmail(String email);
+	
+	User findByMobileNumber(String mobileNumber);
+	
+	User findByEmailAndPassword(String email, String password);
 }

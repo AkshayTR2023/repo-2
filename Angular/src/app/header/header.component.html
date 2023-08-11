@@ -1,24 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- <div class="container-fluid">
-       <img class="ima" src="http://clipart-library.com/data_images/206118.jpg" alt="image"> 
-      <a class="navbar-brand" routerLink="/home" style="margin-left: 1.2rem;"><b>Portal</b></a> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
   <div class="container-fluid">
-    <a
-      class="navbar-brand"
-      routerLink="/home"
-      id="main"
-      target="bottom"
-      style="margin-left: 1.2rem"
-    >
+    <a class="navbar-brand" routerLink="/">
       <img
         src="https://freepngimg.com/save/89626-fork-restaurant-food-photography-icons-computer-monochrome/512x512"
         alt="Logo"
         width="30"
         height="30"
-        class="d-inline-block align-text-top p-10"
-        style="margin-left: 20px"
+        class="d-inline-block align-text-top"
       />
-      Main Page
+      <b style="color: #333;">FoodBox</b>
     </a>
 
     <button
@@ -33,46 +23,54 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div
-      class="collapse navbar-collapse p-2"
-      style="margin-left: 52px"
-      id="navbarSupportedContent"
-    >
-      <ul class="navbar-nav" routerLinkActive="active">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/home"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/offer">offer</a>
+          <a class="nav-link active" routerLink="">
+            <i class="material-icons">home</i> <span class="icon-text">Home</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/foodlist">Food List</a>
+        <li class="nav-item"*ngIf="userSession">
+          <a class="nav-link active" routerLink="/offer">
+            <i class="material-icons">local_offer</i> <span class="icon-text">Offers</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/cart">Cart</a>
+        <li class="nav-item" *ngIf="adminSession">
+          <a class="nav-link active" routerLink="/manage-categories">
+            <i class="material-icons">category</i> <span class="icon-text">Categories</span>
+          </a>
         </li>
-        
-        <li class="nav-item">
-          <div class="input-group">
-            <input
-              type="text"
-              id="search"
-              name="search"
-              placeholder="Search by Id"
-              class="form-control"
-            />
-            <!-- [(ngModel)]="" (ngModelChange)=""> -->
-          </div>
+        <li class="nav-item"*ngIf="userSession">
+          <a class="nav-link active" routerLink="/foodlist">
+            <i class="material-icons">restaurant_menu</i> <span class="icon-text">Food List</span>
+          </a>
+        </li>
+        <li class="nav-item"*ngIf="userSession">
+          <a class="nav-link active" routerLink="/cart">
+            <i class="material-icons">shopping_cart</i> <span class="icon-text">Cart</span>
+          </a>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto" routerLinkActive="active">
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/login">login</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="!adminSession && !userSession">
+          <a class="nav-link active" routerLink="/admin-login-register">
+            <i class="material-icons">login</i> <span class="icon-text">Admin Login</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/logout">logout</a>
+        <li class="nav-item" *ngIf="adminSession">
+          <a class="nav-link active" routerLink="/logout" (click)="adminLogout()">
+            <i class="material-icons">logout</i> <span class="icon-text">Logout</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="userSession">
+          <a class="nav-link active" routerLink="/logout" (click)="userLogout()">
+            <i class="material-icons">logout</i> <span class="icon-text">Logout</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!adminSession && !userSession">
+          <a class="nav-link active" routerLink="/user-login-register">
+            <i class="material-icons">login</i> <span class="icon-text">User Login/Register</span>
+          </a>
         </li>
       </ul>
     </div>
